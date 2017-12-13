@@ -13,9 +13,9 @@ RUN mkdir -p /usr
 WORKDIR /app
 COPY package.json /app
 RUN npm install
-COPY app.js /app
 COPY chaconEmitter.js /app
 COPY mqtt-client.js /app
 
 EXPOSE 8080
-CMD ["npm", "start"]
+ENV EMITTER_ID=12325261 
+CMD ["npm", "start", "--", "$EMITTER_ID"]
